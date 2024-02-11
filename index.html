@@ -33,10 +33,33 @@
 			padding:20px;
 			margin: 10px;
 		}
+		.parent{
+			width:400px;
+			height:400px;
+			padding:20px;
+			border: 2px solid black;
+			color:white;
+		}
+		.child{
+			width:200px;
+			height:200px;
+			padding:20px;
+			border: 2px solid black;
+			color:white;
+		}
+		.grandchild{
+			width:100px;
+			height:100px;
+			padding:20px;
+			border: 2px solid black;
+			color:white;
+		}
 	</style>
 	<title>Document</title>
+	<script async type="text/javascript" src="main.js"></script> 
 </head>
 <body>
+	<div id="parent-container">
 	<div class="container"></div>
 	<h1>Welcome to geeksforgeeks</h1>
 	<h2>offline</h2>
@@ -140,5 +163,12 @@
 		<nav>Home</nav><nav>About us</nav><nav>Contact us</nav><nav>Important links</nav>
 	</aside>
 	<label for="">Name</label>
+	</div>
+	<div class="parent">
+		1
+		<div class="child">2
+			<div class="grandchild">3</div>
+		</div>
+	</div>
 </body>
 </html>
