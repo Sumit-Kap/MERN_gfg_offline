@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script defer type="text/babel">
+        class HelloWorld extends React.Component {
+            render(){
+                return (
+                    <React.Fragment>
+                    <div>
+                    <h1>Hello World</h1>
+                    <p>demo</p>
+                    </div>
+                    <Counter status="ACTIVE"/>
+                    <hr/>
+                    <Counter status="INACTIVE"/>
+                    <hr/>
+                    <Counter status="INACTIVE"/>
+                    <hr/>
+                    <Counter status="ACTIVE"/>
+                    <hr/>
+                    <Counter status="ACTIVE"/>
+                    <hr/>
+                    <Counter status="INACTIVE"/>
+                    </React.Fragment>
+                )
+            }
+        }
+
+        // Create a todo list component using class-based component
+
+        class Counter extends React.Component {
+            constructor(props){
+                super(props)
+                this.state = {
+                    value: 0
+                }
+                // this.handleClick = this.handleClick.bind(this);
+            }
+
+            handleClick() {
+                console.log(this);
+                const { value } = this.state;
+                this.setState({
+                            value: value+1
+                        })
+            }
+            render(){
+                const { value } = this.state;
+                const { status } = this.props;
+                return ( 
+                    <div>
+                    <div>Value is {value}</div><Status callback={(fn)=>{
+                        fn(`status is ${status}`)
+                    }} />
+                    <button onClick={this.handleClick.bind(this)}>Increment</button>
+                    </div>
+                )
+            }
+        }
+
+        class Status extends React.Component {
+            render() {
+                const { callback } = this.props;
+                return (
+                    <>
+                        <button onClick={()=>{
+                            callback(alert);
+                        }}>Show status</button>
+                    </>
+                )
+            }
+        }
+
+        const container = document.getElementById("root");
+
+        ReactDOM.render( <HelloWorld/>,container); // deprecated from React v17
+        ReactDOM.createRoot('container');
+
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+    <!-- <button onclick=""></button> -->
+</body>
+</html>
