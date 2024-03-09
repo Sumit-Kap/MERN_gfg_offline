@@ -1,7 +1,6 @@
 import './App.css';
 
 import React from "react";
-import { withRouter } from "react-router"
 
 class App extends React.Component {
   constructor(props) {
@@ -84,4 +83,6 @@ class App extends React.Component {
   }
 }
 
-export default withRouter(App); // Higher order component connect is HOC
+export default App; // Higher order component connect is HOC v5 router
+// connect 
+// HOC -> HOF (Higher order functions) -> HOC -> function(Component)-> Component withAuth(),withTheme()
