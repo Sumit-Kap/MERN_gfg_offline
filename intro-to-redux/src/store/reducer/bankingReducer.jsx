@@ -1,7 +1,8 @@
 
 
 const initialState = {
-    money: 0
+    money: 0,
+    users:undefined
 }
 
 const bankingReducer = (state = initialState, action) => {
@@ -21,6 +22,11 @@ const bankingReducer = (state = initialState, action) => {
                         ...state,
                         money: 0
                     }
+        case 'GET_USERS':
+            return {
+                ...state,
+                users: action.users
+            }
         default:
             return state;
     }
